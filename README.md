@@ -32,33 +32,70 @@
 ## 1.메이트찾기
 메이트찾기 글 등록하기 (api url : Post /api/mate/register) :
 
+모집 글을 등록하는 요청입니다.
 
 메이트찾기 글 조회하기 (api url : Get /api/mate/read/{post_id}) :
 
+작성이 완료된 글을 조회하는 요청입니다. 
+
 메이트찾기 글 수정하기 (api url : Patch /api/mate/{post_id}) :
+
+작성한 글을 수정 하는 요청입니다.
 
 메이트찾기 글 삭제하기 (api url : delete /api/mate/{post_id}) :
 
+해당 글을 삭제하는 요청입니다.
+
 메이트찾기 글 목록 조회 (api url : Get /api/mate/list) :
+
+메이트찾기에 올라온 글들의 목록을 생성 및 조회합니다. 한번에 10개의 글을 불러옵니다.
 
 목록 조회 시 필터링 기능 (api url : Get /api/mate/list?) :
 
-신청자 신청하기
-신청자 취소하기
-신청자 승낙하기
-신청자 거절하기
-메이트찾기 글 모집완료 하기
+위의 목록을 조회할 때 다음의 필터링 조건을 붙여 목록을 가져올 수 있습니다.
+
+position : GUARD, FORWARD, CENTER 중 하나를 정해 해당 포지션의 빈 자리가 남은 글들을 불러옵니다.(ex. list?position=GUARD)
+
+location : 해당 지역에서 모이는 글들을 불러옵니다.(ex. list?location=서울)
+
+skillLevel : BEGINNER, LOW, MIDDLE, HIGH 중 하나를 정해 해당 실력을 모집하는 글들을 불러옵니다.(ex. list?skillLevel=BEGINNER)
+
+
+cursorTime : 커서 페이징을 위해 생성한 변수 이므로 
+
+
+
+신청자 신청하기(api url : Post. api/mate/{post_id}/participants/register):
+
+신청자 취소하기(api url : Post. api/mate/{post_id}/participants/{participant_table_id}?applyStatus=CANCELED):
+
+신청자 승낙하기(api url : Post. api/mate/{post_id}/participants/{participant_table_id}?applyStatus=ACCEPTED):
+
+신청자 거절하기(api url : Post. api/mate/{post_id}/participants/{participant_table_id}?applyStatus=REJECTED):
+
+메이트찾기 글 모집완료 하기(api url : Post. api/mate/{post_id}/participants/{participant_table_id}?applyStatus=REJECTED)
+
 
 ## 2.상대팀 매칭
 상대팀 매칭 글 등록하기
+
 상대팀 매칭 글 조회하기
+
 상대팀 매칭 글 수정하기
+
 상대팀 매칭 글 삭제하기
+
 상대팀 매칭 글 목록 조회
+
 목록 조회 시 필터링 기능
+
 신청자 신청하기
+
 신청자 취소하기
+
 신청자 승낙하기
+
 신청자 거절하기
+
 상대팀매칭 글 모집완료 하기
 
