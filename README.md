@@ -14,66 +14,77 @@
 
 신청자는 대기중('WAITING'), 취소('CANCELED'), 승낙('ACCEPTED'), 거절('REJECTED')의 상태를 가짐.
 
-모집중('RECRUITING') : 글 작성자가 모집 글을 게시하는 순간부터 모집완료 버튼을 누르기 전까지의 상태를 의미함. 이 상태에선 모든 사람이 해당 글에 신청할 수 있고 취소할 수 있으며 글 작성자가 승낙, 또는 거절을 할 수 있음.
+<b>모집중</b>('RECRUITING') : 글 작성자가 모집 글을 게시하는 순간부터 모집완료 버튼을 누르기 전까지의 상태를 의미함. 이 상태에선 모든 사람이 해당 글에 신청할 수 있고 취소할 수 있으며 글 작성자가 승낙, 또는 거절을 할 수 있음.
 
-모집완료('COMPLETED') : 모집이 완료된 글을 의미함. 모집 완료를 활성화 하면 ACCEPTED 상태인 신청자들을 제외하고 나머지 신청자('REJECTED' OR 'WAITING')들을 신청자 목록에서 삭제하며(soft delete) COMPLETED 상태로 글의 상태를 전환함.
+<b>모집완료</b>('COMPLETED') : 모집이 완료된 글을 의미함. 모집 완료를 활성화 하면 ACCEPTED 상태인 신청자들을 제외하고 나머지 신청자('REJECTED' OR 'WAITING')들을 신청자 목록에서 삭제하며(soft delete) COMPLETED 상태로 글의 상태를 전환함.
 
 
 
-대기중('WAITING') : 신청자가 해당 모집 글에 지원 신청하여 신청자 목록에 등록된 상태. 
+<b>대기중</b>('WAITING') : 신청자가 해당 모집 글에 지원 신청하여 신청자 목록에 등록된 상태. 
 
-취소('CANCELED') : 신청자가 취소를 하면 신청자 목록에서 제거되고 다시 신청할 수 있음. WAITING 상태인 신청자만 선택할 수 있음.
+<b>취소</b>('CANCELED') : 신청자가 취소를 하면 신청자 목록에서 제거되고 다시 신청할 수 있음. WAITING 상태인 신청자만 선택할 수 있음.
 
-승낙('ACCEPTED') : 해당 글 작성자가 대기중인 신청자를 승낙하면 신청자는 승낙 상태('ACCEPTED')에 놓임. WAITING 상태인 신청자만 이 상태로 바뀔 수 있음.
+<b>승낙</b>('ACCEPTED') : 해당 글 작성자가 대기중인 신청자를 승낙하면 신청자는 승낙 상태('ACCEPTED')에 놓임. WAITING 상태인 신청자만 이 상태로 바뀔 수 있음.
 
-거절('REJECTED') : 해당 글 작성자가 대기중인 신청자를 거절하면 신청자는 거절 상태('REJECTED')에 놓임. WAITING 상태인 신청자만 이 상태로 바뀔 수 있음.
+<b>거절</b>('REJECTED') : 해당 글 작성자가 대기중인 신청자를 거절하면 신청자는 거절 상태('REJECTED')에 놓임. WAITING 상태인 신청자만 이 상태로 바뀔 수 있음.
 
 
 ## 1.메이트찾기
-메이트찾기 글 등록하기 (api url : Post /api/mate/register) :
+<b>메이트찾기 글 등록하기</b> (api url : Post /api/mate/register) :
 
 모집 글을 등록하는 요청입니다.
 
-메이트찾기 글 조회하기 (api url : Get /api/mate/read/{post_id}) :
+<b>메이트찾기 글 조회하기</b> (api url : Get /api/mate/read/{post_id}) :
 
 작성이 완료된 글을 조회하는 요청입니다. 
 
-메이트찾기 글 수정하기 (api url : Patch /api/mate/{post_id}) :
+<b>메이트찾기 글 수정하기</b> (api url : Patch /api/mate/{post_id}) :
 
 작성한 글을 수정 하는 요청입니다.
 
-메이트찾기 글 삭제하기 (api url : delete /api/mate/{post_id}) :
+<b>메이트찾기 글 삭제하기</b> (api url : delete /api/mate/{post_id}) :
 
 해당 글을 삭제하는 요청입니다.
 
-메이트찾기 글 목록 조회 (api url : Get /api/mate/list) :
+<b>메이트찾기 글 목록 조회</b> (api url : Get /api/mate/list) :
 
-메이트찾기에 올라온 글들의 목록을 생성 및 조회합니다. 한번에 10개의 글을 불러옵니다.
+메이트찾기에 올라온 글들의 목록을 생성 및 최근 등록일자 순으로 조회합니다. 한번에 10개의 글을 불러옵니다.
 
-목록 조회 시 필터링 기능 (api url : Get /api/mate/list?) :
+<b>목록 조회 시 필터링 기능</b> (api url : Get /api/mate/list?) :
 
 위의 목록을 조회할 때 다음의 필터링 조건을 붙여 목록을 가져올 수 있습니다.
 
-position : GUARD, FORWARD, CENTER 중 하나를 정해 해당 포지션의 빈 자리가 남은 글들을 불러옵니다.(ex. list?position=GUARD)
+- position : GUARD, FORWARD, CENTER 중 하나를 정해 해당 포지션의 빈 자리가 남은 글들을 불러옵니다.(ex. list?position=GUARD)
 
-location : 해당 지역에서 모이는 글들을 불러옵니다.(ex. list?location=서울)
+- location : 해당 지역에서 모이는 글들을 불러옵니다.(ex. list?location=서울)
 
-skillLevel : BEGINNER, LOW, MIDDLE, HIGH 중 하나를 정해 해당 실력을 모집하는 글들을 불러옵니다.(ex. list?skillLevel=BEGINNER)
+- skillLevel : BEGINNER, LOW, MIDDLE, HIGH 중 하나를 정해 해당 실력을 모집하는 글들을 불러옵니다.(ex. list?skillLevel=BEGINNER)
+
+- includingExpired : 약속 시작 시간을 경과 했는지 여부에 따라 글들을 불러옵니다.(기본값은 false. 시간이 경과하지 않은 글들만 불러옴. ex. list?includingExpired=true)
+
+- cursorTime : 커서 페이징을 위한 쿼리 파라미터. 응답으로 보낼 커서 페이징 목록 JSON 객체 내 nextCursor의 값을 목록의 다음 페이지를 불러올때 cursorTime의 값으로 지정합니다.(ex. list?cursorTime=2024-02-26T05:07:35.709673)
 
 
-cursorTime : 커서 페이징을 위해 생성한 변수 이므로 
 
+<b>신청자 신청하기</b>(api url : Post. api/mate/{post_id}/participants/register):
 
+해당 글에 지원하고 싶은 사람이 신청을 요청합니다.
 
-신청자 신청하기(api url : Post. api/mate/{post_id}/participants/register):
+<b>신청자 취소하기</b>(api url : Post. api/mate/{post_id}/participants/{participant_table_id}?applyStatus=CANCELED):
 
-신청자 취소하기(api url : Post. api/mate/{post_id}/participants/{participant_table_id}?applyStatus=CANCELED):
+해당 글에 신청하여 대기중인 신청자가 신청을 취소하는 요청입니다.
 
-신청자 승낙하기(api url : Post. api/mate/{post_id}/participants/{participant_table_id}?applyStatus=ACCEPTED):
+<b>신청자 승낙하기</b>(api url : Post. api/mate/{post_id}/participants/{participant_table_id}?applyStatus=ACCEPTED):
 
-신청자 거절하기(api url : Post. api/mate/{post_id}/participants/{participant_table_id}?applyStatus=REJECTED):
+해당 글의 작성자가 대기중인 신청자를 승낙합니다.
 
-메이트찾기 글 모집완료 하기(api url : Post. api/mate/{post_id}/participants/{participant_table_id}?applyStatus=REJECTED)
+<b>신청자 거절하기</b>(api url : Post. api/mate/{post_id}/participants/{participant_table_id}?applyStatus=REJECTED):
+
+해당 글의 작성자가 대기중인 신청자를 거절합니다.
+
+<b>메이트찾기 글 모집완료 하기</b>(api url : Post. api/mate/{post_id}/participants/{participant_table_id}?applyStatus=REJECTED):
+
+해당 글의 작성자가 모집완료 요청을 서버에 보내명 1명 이상의 ACCEPTED 상태인 신청자들을 채팅방으로 연결하고 해당 글의 상태는 모집완료('COMPLETED')로 바뀝니다. 다른 신청자들은 신청자 목록에서 지워집니다.
 
 
 ## 2.상대팀 매칭
