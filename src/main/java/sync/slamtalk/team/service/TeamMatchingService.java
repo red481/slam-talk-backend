@@ -334,7 +334,7 @@ public class TeamMatchingService {
                 throw new BaseException(OPPONENT_NOT_DECLARED);
             }
             List<TeamApplicant> applicantList = teamPost.getTeamApplicants();
-            if(applicantList.size() > 0){
+            if(applicantList.stream().filter(applicant -> applicant.getApplyStatus() == ApplyStatusType.ACCEPTED).count() == 1){
                 for(TeamApplicant teamApplicant : applicantList) {
                     if(teamApplicant.getApplyStatus() == ApplyStatusType.REJECTED || teamApplicant.getApplyStatus() == ApplyStatusType.WAITING){
                         teamApplicant.delete();
