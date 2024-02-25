@@ -142,7 +142,6 @@ public class ParticipantService {
     // 모집 글 게시자가 참여자를 거절했을 때
     // 접속자와 ID와 모집 글 작성자의 ID가 일치하는지 확인한다.
     // 승낙 전 참여자를 거절하기 때문에 포지션별 인원의 변동은 없다.
-    // 현재 참여자 목록에서 완전히 삭제 하지 않았지만 재신청이 가능하다면 참여자 목록에서 삭제(hard delete)하는 것이 맞다고 생각한다.
     public ParticipantDto rejectParticipant(long matePostId, long participantTableId, long hostId){
         MatePost matePost = matePostRepository.findById(matePostId).orElseThrow(()->new BaseException(MATE_POST_NOT_FOUND));
 
