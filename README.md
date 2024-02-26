@@ -10,8 +10,9 @@
 
 
 
+
 ### 매칭 로직 설명
-![application_algorithm](https://github.com/red481/slam-talk-backend/assets/72694104/2b31b19a-e81a-442f-90e1-004a02c5f41c)
+![application_algorithm](https://github.com/red481/slam-talk-backend/assets/72694104/46ac5bb1-5f4e-42f1-af87-5cea459c1350)
 
 매칭 모집 글은 모집중('RECRUITING')과 모집완료('COMPLETED')의 상태를 가짐.
 
@@ -85,31 +86,31 @@
 
 해당 글의 작성자가 대기중인 신청자를 거절합니다.
 
-<b>메이트찾기 글 모집완료 하기</b>(api url : Patch. api/mate/{post_id}/participants/{participant_table_id}?applyStatus=REJECTED):
+<b>메이트찾기 글 모집완료 하기</b>(api url : Patch. api/mate/{post_id}/complete):
 
 해당 글의 작성자가 모집완료 요청을 서버에 보내명 1명 이상의 ACCEPTED 상태인 신청자들을 채팅방으로 연결하고 해당 글의 상태는 모집완료('COMPLETED')로 바뀝니다. 다른 신청자들은 신청자 목록에서 지워집니다.
 
 
 ## 2.상대팀 매칭
-상대팀 매칭 글 등록하기
+<b>상대팀 매칭 글 등록하기</b>(api url : Post. api/match/register):
 
-상대팀 매칭 글 조회하기
+<b>상대팀 매칭 글 조회하기</b>(api url : Get. api/match/read/{post_id}):
 
-상대팀 매칭 글 수정하기
+<b>상대팀 매칭 글 수정하기</b>(api url : Patch. api/match/{post_id}):
 
-상대팀 매칭 글 삭제하기
+<b>상대팀 매칭 글 삭제하기</b>(api url : Delete. api/match/{post_id}):
 
-상대팀 매칭 글 목록 조회
+<b>상대팀 매칭 글 목록 조회</b>(api url : Patch. api/match/list):
 
-목록 조회 시 필터링 기능
+<b>목록 조회 시 필터링 기능</b>(api url : Patch. api/match/list?):
 
-신청자 신청하기
+<b>신청자 신청하기</b>(api url : Post. api/match/{post_id}/apply):
 
-신청자 취소하기
+<b>신청자 취소하기</b>(api url : Patch. api/match/{post_id}/apply/{teamApplicant_id}?applyStatus=CANCELED):
 
-신청자 승낙하기
+<b>신청자 승낙하기</b>(api url : Patch. api/match/{post_id}/apply/{teamApplicant_id}?applyStatus=ACCEPTED)):
 
-신청자 거절하기
+<b>신청자 거절하기</b>(api url : Patch. api/match/{post_id}/apply/{teamApplicant_id}?applyStatus=REJECTED)):
 
-상대팀매칭 글 모집완료 하기
+<b>상대팀매칭 글 모집완료 하기</b>(api url : Patch. api/match/{post_id}/complete):
 
