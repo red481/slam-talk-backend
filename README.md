@@ -1,5 +1,5 @@
 # slam-talk-BackEnd
-본 웹 어플리케이션은 농구장 시설 위치를 카카오 지도에 등록하여 원하는 장소에서 사람들이 팀원이나 상대팀을 구할 수 있고 채팅을 통해 농구장 시설이나 매칭 관련 의견과 대화를 나눌 수 있는 웹앱.
+본 웹 어플리케이션은 농구장 시설 위치를 카카오 지도에 등록하여 원하는 장소에서 사람들이 팀원이나 상대팀을 구할 수 있고 채팅을 통해 농구장 시설이나 매칭 관련 의견과 대화를 나눌 수 있는 웹앱 입니다. 또한 자유게시판, 대관양도, 중고거래 등 관심 있는 사람들이 모여 형성하는 커뮤니티도 존재합니다.
 
 # 프로젝트 내 담당 파트(메이트 찾기, 상대팀 매칭)
 원하는 장소에서 함께 농구를 할 팀원을 구하는 기능인 '메이트 찾기'와 3vs3 또는 5vs5 등 원하는 형태의 팀 구성으로 함께 붙을 상대팀을 구하는 '상대팀 매칭' 기능을 구현함.
@@ -31,27 +31,27 @@
 
 
 ## 1.메이트찾기
-<b>메이트찾기 글 등록하기</b> (api url : Post /api/mate/register) :
+<b>메이트찾기 글 등록하기</b> (api url : Post. /api/mate/register) :
 
 모집 글을 등록하는 요청입니다.
 
-<b>메이트찾기 글 조회하기</b> (api url : Get /api/mate/read/{post_id}) :
+<b>메이트찾기 글 조회하기</b> (api url : Get. /api/mate/read/{post_id}) :
 
 작성이 완료된 글을 조회하는 요청입니다. 
 
-<b>메이트찾기 글 수정하기</b> (api url : Patch /api/mate/{post_id}) :
+<b>메이트찾기 글 수정하기</b> (api url : Patch. /api/mate/{post_id}) :
 
 작성한 글을 수정 하는 요청입니다.
 
-<b>메이트찾기 글 삭제하기</b> (api url : delete /api/mate/{post_id}) :
+<b>메이트찾기 글 삭제하기</b> (api url : Delete. /api/mate/{post_id}) :
 
 해당 글을 삭제하는 요청입니다.
 
-<b>메이트찾기 글 목록 조회</b> (api url : Get /api/mate/list) :
+<b>메이트찾기 글 목록 조회</b> (api url : Get. /api/mate/list) :
 
 메이트찾기에 올라온 글들의 목록을 생성 및 최근 등록일자 순으로 조회합니다. 한번에 10개의 글을 불러옵니다.
 
-<b>목록 조회 시 필터링 기능</b> (api url : Get /api/mate/list?) :
+<b>목록 조회 시 필터링 기능</b> (api url : Get. /api/mate/list?) :
 
 위의 목록을 조회할 때 다음의 필터링 조건을 붙여 목록을 가져올 수 있습니다.
 
@@ -71,19 +71,19 @@
 
 해당 글에 지원하고 싶은 사람이 신청을 요청합니다.
 
-<b>신청자 취소하기</b>(api url : Post. api/mate/{post_id}/participants/{participant_table_id}?applyStatus=CANCELED):
+<b>신청자 취소하기</b>(api url : Patch. api/mate/{post_id}/participants/{participant_table_id}?applyStatus=CANCELED):
 
 해당 글에 신청하여 대기중인 신청자가 신청을 취소하는 요청입니다.
 
-<b>신청자 승낙하기</b>(api url : Post. api/mate/{post_id}/participants/{participant_table_id}?applyStatus=ACCEPTED):
+<b>신청자 승낙하기</b>(api url : Patch. api/mate/{post_id}/participants/{participant_table_id}?applyStatus=ACCEPTED):
 
 해당 글의 작성자가 대기중인 신청자를 승낙합니다.
 
-<b>신청자 거절하기</b>(api url : Post. api/mate/{post_id}/participants/{participant_table_id}?applyStatus=REJECTED):
+<b>신청자 거절하기</b>(api url : Patch. api/mate/{post_id}/participants/{participant_table_id}?applyStatus=REJECTED):
 
 해당 글의 작성자가 대기중인 신청자를 거절합니다.
 
-<b>메이트찾기 글 모집완료 하기</b>(api url : Post. api/mate/{post_id}/participants/{participant_table_id}?applyStatus=REJECTED):
+<b>메이트찾기 글 모집완료 하기</b>(api url : Patch. api/mate/{post_id}/participants/{participant_table_id}?applyStatus=REJECTED):
 
 해당 글의 작성자가 모집완료 요청을 서버에 보내명 1명 이상의 ACCEPTED 상태인 신청자들을 채팅방으로 연결하고 해당 글의 상태는 모집완료('COMPLETED')로 바뀝니다. 다른 신청자들은 신청자 목록에서 지워집니다.
 
