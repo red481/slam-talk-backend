@@ -7,8 +7,9 @@
 사용 스텍 : Data JPA, QueryDSL, h2, MySQL
 
 
+
 ### 매칭 로직 설명
-![application_algorithm](https://github.com/red481/slam-talk-backend/assets/72694104/bf81f520-0b4e-490e-98ee-f5d40b17a53f)
+![application_algorithm](https://github.com/red481/slam-talk-backend/assets/72694104/2b31b19a-e81a-442f-90e1-004a02c5f41c)
 
 매칭 모집 글은 모집중('RECRUITING')과 모집완료('COMPLETED')의 상태를 가짐.
 
