@@ -139,16 +139,10 @@ public class TeamMatchingService {
         List<UnrefinedTeamMatchingDto> listedTeamMatchings = queryRepository.findTeamMatchingList(condition);
 
         List<ToTeamFormDTO> refinedDto = listedTeamMatchings.stream().map(dto -> entityToDtoMapper.fromUnrefinedTeamMatchingToDto(dto)).collect(Collectors.toList());
-        List<ToTeamFormDTO> result = refinedDto.stream().map(dto -> {
-                    List<ToApplicantDto> refined = queryRepository.findApplicantListByTeamMatchingId(dto.getTeamMatchingId());
-                    dto.setTeamApplicants(refined);
-                    return dto;
-                }
-        ).toList();
         ToTeamMatchingListDto response = new ToTeamMatchingListDto();
-        response.setTeamMatchingList(result);
-        if(result.isEmpty() == false) {
-            response.setNextCursor(result.get(result.size() - 1).getCreatedAt().toString());
+        response.setTeamMatchingList(refinedDto);
+        if(refinedDto.isEmpty() == false) {
+            response.setNextCursor(refinedDto.get(refinedDto.size() - 1).getCreatedAt().toString());
         }
         return response;
     }
